@@ -1,0 +1,38 @@
+# Final Engineering Sweep: .gitignore for "for the kulture"
+
+# Python compilation caches
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# JAX/Flax machine-specific caches
+.jax_cache/
+.persistent_cache/
+
+# Local IDE and platform metadata
+.vscode/
+.idea/
+.antigravity/
+.DS_Store
+
+# Dynamic data outputs and reports
+/data/processed/
+/reports/
+/artifacts/
+
+# Generated analysis outputs and local environments
+notebooks/*.json
+reports/*.json
+.env
+
+# ==============================================================================
+# Temporary Developer Utilities & Internal Walkthroughs
+# ==============================================================================
+add_headers.py
+md_linter.py
+modify_readme.py
+walkthrough.md
