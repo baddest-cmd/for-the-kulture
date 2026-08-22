@@ -1,8 +1,5 @@
 # Appendix D: Axiomatic Social Choice Theory, Multi-Agent Negotiation, and Quota Guarantees in SCRUF-D
 
-**Author:** Shailoh (Independent Socio-Technologist & ML Practitioner)  
-**Target Repository:** `for the kulture`  
-
 ---
 
 ## 1. Multi-Stakeholder Slate Selection
@@ -77,7 +74,7 @@ The SCRUF-D scoring function satisfies several standard social choice criteria:
 Let $\mathcal{S}_u^K \subset \mathcal{I}$ be a recommendation slate of size $K$ for user $u$.
 
 ### 4.1 Constrained Selection Problem
-The slate selection problem can be written as:
+We write the slate selection problem as:
 $$\mathcal{S}_u^{K*} = \arg\max_{\mathcal{S} \subset \mathcal{I}, |\mathcal{S}| = K} \sum_{i \in \mathcal{S}} U(u, i) \quad \text{s.t.} \quad \sum_{i \in \mathcal{S}} \mathbb{I}\left(\text{genre}(i) \in \mathcal{G}_{\text{local}}\right) \ge Q_g$$
 where $Q_g \in \{1, \dots, K\}$ is the required local genre quota.
 
@@ -96,10 +93,10 @@ Let $\mathcal{S}_0 = \{\sigma_1, \dots, \sigma_K\}$ be the unconstrained top-$K$
 1. **Case 1 ($k_{\text{cult}} \ge Q_g$):** $\mathcal{S}_0$ is already feasible and maximizes unconstrained sum of utilities, making it optimal.
 2. **Case 2 ($k_{\text{cult}} < Q_g$):** The shortfall is $\Delta Q = Q_g - k_{\text{cult}}$. To restore feasibility while maximizing total score, we perform $\Delta Q$ substitutions: replace $\Delta Q$ items from $\mathcal{S}_0 \setminus \mathcal{G}_{\text{local}}$ with $\Delta Q$ items from $\mathcal{I} \setminus (\mathcal{S}_0 \cup \mathcal{G}_{\text{local}}^c)$.
 
-Total utility loss from replacement is:
-$$\Delta \text{Loss} = \sum_{r=1}^{\Delta Q} \left( U(u, \text{remove}_r) - U(u, \text{insert}_r) \right)$$
+The replacement produces a total utility loss of:
+$$\Delta \text{Loss} = \sum_{r=1}^{\Delta Q} \left( U(u, text{remove}_r) - U(u, \text{insert}_r) \right)$$
 
-This loss is minimized by:
+We minimize this loss by:
 - Selecting the $\Delta Q$ items in $\mathcal{S}_0 \setminus \mathcal{G}_{\text{local}}$ with the lowest utility $U(u, i)$.
 - Selecting the $\Delta Q$ candidate items in $\mathcal{I} \setminus \mathcal{S}_0$ with $\text{genre} \in \mathcal{G}_{\text{local}}$ with the highest utility $U(u, j)$.
 
@@ -137,7 +134,7 @@ $$\tag*{$\blacksquare$}$$
 
 ## References
 
-1. **Sonboli, N., Burke, R., & Smith, B.** (2020). *Opportunistic Discovery and Multi-Sided Fairness in Recommendation*. In Proceedings of the 28th ACM Conference on User Modelling, Adaptation and Personalization (UMAP '20), pp. 231–239.
-2. **Patro, G. K., Biswas, A., Ganguly, N., Gummadi, K. P., & Chakraborty, A.** (2020). *FairTraM: Fair and Transparent Matching in Two-Sided Platforms*. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD '20), pp. 1341–1350.
+1. **Sonboli, N., Burke, R., & Smith, B.** (2020). *Opportunistic Discovery and Multi-Sided Fairness in Recommendation*. In Proceedings of the 28th ACM Conference on User Modelling, Adaptation and Personalization (UMAP '20), pp. 231-239.
+2. **Patro, G. K., Biswas, A., Ganguly, N., Gummadi, K. P., & Chakraborty, A.** (2020). *FairTraM: Fair and Transparent Matching in Two-Sided Platforms*. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD '20), pp. 1341-1350.
 3. **Burke, R.** (2017). *Multisided Fairness for Recommendation Decentralisation*. In FATREC Workshop on Responsible Recommendation at ACM RecSys 2017.
-4. **Nash, J.** (1950). *The Bargaining Problem*. Econometrica, 18(2), 155–162.
+4. **Nash, J.** (1950). *The Bargaining Problem*. Econometrica, 18(2), 155-162.

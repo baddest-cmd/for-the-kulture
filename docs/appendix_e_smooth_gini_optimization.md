@@ -15,7 +15,7 @@ The classical definition uses absolute difference $\phi(d) = |d|$ where $d = x_i
 Its subgradient is:
 $$\partial \phi(d) = \begin{cases} \{+1\} & \text{if } d > 0 \\ \{-1\} & \text{if } d < 0 \\ [-1, 1] & \text{if } d = 0 \end{cases}$$
 
-At equal allocation ($x_i = x_j$), the subgradient is set-valued. During gradient descent, this can cause gradients to oscillate across zero rather than converging smoothly.
+At equal allocation ($x_i = x_j$), the subgradient is set-valued. During gradient descent, this causes gradients to oscillate across zero rather than converging.
 
 ---
 
@@ -54,7 +54,7 @@ The smoothed Gini index is:
 $$\mathcal{G}_\epsilon(\mathbf{x}) = \frac{N_\epsilon(\mathbf{x})}{2 K S(\mathbf{x})}$$
 
 ### 3.1 Exact Gradient
-Using the quotient rule, the partial derivative with respect to exposure $x_k$ is:
+Using the quotient rule, we calculate the partial derivative with respect to exposure $x_k$ as:
 $$\frac{\partial \mathcal{G}_\epsilon}{\partial x_k} = \frac{1}{2 K S(\mathbf{x})^2} \left[ S(\mathbf{x}) \frac{\partial N_\epsilon}{\partial x_k} - N_\epsilon(\mathbf{x}) \frac{\partial S}{\partial x_k} \right]$$
 
 Expanding the derivatives:
@@ -67,7 +67,7 @@ $$\frac{\partial \mathcal{G}_\epsilon}{\partial x_k} = \frac{1}{K S(\mathbf{x})}
 ---
 
 ### Theorem 1 (Lipschitz Continuity and Bounded Gradients)
-*For any $\epsilon > 0$, the gradient $\nabla \mathcal{G}_\epsilon(\mathbf{x})$ is everywhere $\mathcal{C}^\infty$ smooth, and its norm is bounded for all non-negative exposure vectors $\mathbf{x} \in \mathbb{R}_+^K \setminus \{\mathbf{0}\}$:*
+*For any $\epsilon > 0$, the gradient $\nabla \mathcal{G}_\epsilon(\mathbf{x})$ is $\mathcal{C}^\infty$ smooth, and its norm is bounded for all non-negative exposure vectors $\mathbf{x} \in \mathbb{R}_+^K \setminus \{\mathbf{0}\}$:*
 $$\|\nabla \mathcal{G}_\epsilon(\mathbf{x})\|_2 \le \frac{2\sqrt{K}}{\epsilon_{\text{denom}}} < \infty$$
 
 ### Proof:
@@ -144,7 +144,7 @@ In the empirical ablation study (`representation-alignment/data/processed/ablati
 
 ## References
 
-1. **Chamon, L. F., Paternain, S., Preciado, V. M., & Ribeiro, A.** (2022). *Constrained Learning with Non-Convex / Non-Smooth Fairness Objectives*. IEEE Transactions on Signal Processing, 70, 4833–4848.
-2. **Yurochkin, M., Sun, Y., & Vorobeychik, Y.** (2020). *Training Individual Fair and Robust Classifiers*. In International Conference on Machine Learning (ICML '20), PMLR 119:10919–10929.
-3. **Biega, A. J., Gummadi, K. P., & Weikum, G.** (2018). *Equity of Attention: Amortized Fairness in Ranking*. In Proceedings of the 41st International ACM SIGIR Conference on Research and Development in Information Retrieval, pp. 405–414.
-4. **Geoffrion, A. M.** (1968). *Proper Efficiency and the Theory of Vector Maximisation*. Journal of Mathematical Analysis and Applications, 22(3), 618–630.
+1. **Chamon, L. F., Paternain, S., Preciado, V. M., & Ribeiro, A.** (2022). *Constrained Learning with Non-Convex / Non-Smooth Fairness Objectives*. IEEE Transactions on Signal Processing, 70, 4833-4848.
+2. **Yurochkin, M., Sun, Y., & Vorobeychik, Y.** (2020). *Training Individual Fair and Robust Classifiers*. In International Conference on Machine Learning (ICML '20), PMLR 119:10919-10929.
+3. **Biega, A. J., Gummadi, K. P., & Weikum, G.** (2018). *Equity of Attention: Amortized Fairness in Ranking*. In Proceedings of the 41st International ACM SIGIR Conference on Research and Development in Information Retrieval, pp. 405-414.
+4. **Geoffrion, A. M.** (1968). *Proper Efficiency and the Theory of Vector Maximisation*. Journal of Mathematical Analysis and Applications, 22(3), 618-630.

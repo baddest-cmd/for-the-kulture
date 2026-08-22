@@ -2,7 +2,7 @@
 
 **Author:** Shailoh (Independent Socio-Technologist & ML Practitioner)  
 **Location:** Johannesburg, South Africa  
-**Funding Status:** 100% Self-Funded Independent Research Pilot (For the love of pluaristic kutlure)
+**Funding Status:** 100% Self-Funded Independent Research Pilot (For the love of pluralistic culture)
 **Primary Repository:** `for the kulture`  
 **License:** Apache 2.0 / Academic Open Access  
 
@@ -26,7 +26,7 @@ This repository presents a mixed-methods explanatory sequential pilot study ($\t
 While rooted in South African data, this pilot acts as a proof of concept for a pattern seen across the continent. In Nigeria, for example, the track *Okunkun* by Solana and Killertunes blends Yoruba cultural language with 1980s and 1990s pop-rock musical elements into a style known locally as YuroPop. Streaming platforms currently bucket it under generic Afrobeats. When platforms force artists into broad commercial categories to get discovered, they flatten distinct local styles into a single global sound.
 
 ![Map of Southern African cultural groups](./docs/african_heritage_map.jpeg)
-*Visual Context: Map Source: African Heritage by Peter Jurgens, illustrated by Barbara Tyrell.*
+*Map Source: African Heritage by Peter Jurgens, illustrated by Barbara Tyrell.*
 
 We identify two structural patterns in the survey data:
 1. **The Inversion Problem:** Platform delivery constraints ($C$) bias observed consumer behaviour ($B$). Completed streams reflect interface placement rather than unconstrained aesthetic preference:
@@ -59,18 +59,18 @@ This project comes from the lived reality of Pretoria and Johannesburg, where I 
 My journey began at the **University of Pretoria**, studying Economics and Statistics. In lectures, neoclassical models treated people as rational utility maximisers. In the streets of Pretoria and Johannesburg, real human choices were communal, contextual, and constrained by infrastructure. Econometric models often broke down when applied to real-world data. Data science and machine learning offered better tools for non-linear patterns, but those models carried their own implicit assumptions.
 
 ### The Nudge: Behavioural Science at Standard Bank
-Working as a Behavioural Data Scientist in **Standard Bank's Behavioural Science and Innovation team**, I curated datasets and evaluated machine learning models for our case study: *"How Nudge Messaging Can Improve Product Take-Up: A Case Study on Funeral Insurance in South Africa."* I saw how models trained solely on immediate click-through rates amplified existing vulnerabilities and missed cultural context around risk. Unconstrained optimisation produced short-term numbers, but often nudged customers away from their long-term interests. So I left in search of ways to implement this approach in a way that was both effective and ethical.
+Working as a Behavioural Data Scientist in **Standard Bank's Behavioural Science and Innovation team**, I curated datasets and evaluated machine learning models for our case study: *"How Nudge Messaging Can Improve Product Take-Up: A Case Study on Funeral Insurance in South Africa."* I saw how models trained solely on immediate click-through rates amplified existing vulnerabilities and missed cultural context around risk. Unconstrained optimisation produced short-term numbers, but often nudged customers away from their long-term interests. So I left to study how to balance recommendation performance with cultural fairness.
 
 ### Shadow AI at Vodacom & Rooted Refusal
-At **Vodacom Financial Services**, my first project involved auditing the usage of so-called "shadow AI" tools across the company. While interviewing the AI adoption **detractors**. I discovered that most of them shared a common frustration. A prominent theme was that chat based LLMs required them to provide long essays about their work and most importantly cultural context. If they didn't, the LLM would default to western cultural norms and context. So they became detractors not because the tech was bad but because it was not culturally contextualised. And they had to carry the cultural context on their own. Long story short they felt the time it took to provide the context they innately have was just too much to ask. And certainly did not provide any productivity gains.
+At **Vodacom Financial Services**, I audited the use of "shadow AI" tools. While interviewing employees who refused to adopt AI, I discovered they shared a common frustration: chatbots required them to write long explanations to establish cultural context. Without this context, the models defaulted to Western norms. They rejected the tools not because the technology failed, but because it lacked local context, forcing them to supply it manually. They felt that constantly explaining context they innately understood wasted time and cancelled out any productivity gains.
 
-We all carry a significant cultural context tax when using AI tools today. 
+We all pay a cultural context tax when using these systems. 
 
 ---
 
 ## 3. An Act of Creative Autonomy
 
-An observation piqued my curiosity. I have more questions now than before I started this. I want to know more, this is layered like tiramisu. I am aware I have barely scratched the surface.
+This pilot raised more questions than it answered. The interaction between platform metrics and local music discovery is complex, and we are just starting to understand it.
 
 ```
                    ┌────────────────────────────────────────────────────────┐
@@ -83,10 +83,10 @@ An observation piqued my curiosity. I have more questions now than before I star
                    └────────────────────────────────────────────────────────┘
 ```
 
-Funding this myself kept the project independent from sponsored marketing initiatives that highlight local art without examining the underlying recommendation infrastructure.
+Self-funding kept this research independent of corporate sponsors, who often showcase local art without addressing the recommendation systems that distribute it.
 
-Music serves as a clear, high-signal domain to study this problem. When recommendation systems compress South African subgenres (*Amapiano, Gqom, Lekompo, Maskandi*) into a flat "World Music" bucket, they illustrate how algorithms flatten distinct cultural expressions into generic categories.
-My mission is to tackle this in the braoder art and culture arcoss Africa, music is just the beginning.
+Music is a high-signal domain for this study. When recommendation systems compress South African subgenres (*Amapiano, Gqom, Lekompo, Maskandi*) into a flat "World Music" category, they demonstrate how algorithms flatten cultural expression.
+This study is a starting point for auditing and aligning recommendation systems across African art and culture.
 
 ---
 
@@ -116,7 +116,7 @@ The repository uses reproducible data science and MLOps practices:
 ```
 
 ### 4.2 Data and Logic Flow
-1. **Raw Data Ingestion:** Immutable data from `data/raw/fan_survey_cleaned.csv` is read.
+1. **Raw Data Ingestion:** Immutable data from `data/raw/fan_survey.csv` is read.
 2. **Analysis Pipeline:** The data is processed through our non-parametric tests (Mann-Whitney U, Kruskal-Wallis) due to ordinal skew.
 3. **Context Tax ($\tau_c$):** Platform constraints are calculated to determine the cultural context tax for each user.
 4. **Representation Alignment Loop:** The data and metrics feed into the dual paradigms: the post-processing 3-Agent SCRUF-D committee (Paradigm A) and the in-processing JAX/Flax Two-Tower model on $\mathbb{S}^{D-1}$ (Paradigm B).
@@ -131,7 +131,7 @@ The repository uses reproducible data science and MLOps practices:
 - [Directional Discovery Report](./reports/directional_discovery_report.md)
 
 ### Reproducibility Commitments
-1. **Read-Only Raw Data:** `data/raw/fan_survey_cleaned.csv` is immutable and treated as read-only.
+1. **Read-Only Raw Data:** `data/raw/fan_survey.csv` is immutable and treated as read-only.
 2. **Path Anchoring:** File paths resolve through `src/kulture/common/paths.py` from repository root, avoiding working-directory breakage.
 3. **Cache Isolation:** Compilation caches (`.jax_cache/`, `__pycache__/`) are excluded from git.
 4. **Environment Portability:** Dependencies and optional groups (`jax`, `dev`, `notebooks`) are standardized in `pyproject.toml`.
@@ -215,7 +215,7 @@ The survey data ($N = 152$) highlights three main patterns:
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │                               CORE EMPIRICAL ANOMALY PROOFS                            │
 ├────────────────────────────┬─────────────────────────────┬─────────────────────────────┤
-│ Metric / Phenomenon        │ Quantitative Value          │ Practical Implication      │
+│ Metric / Phenomenon        │ Quantitative Value          │ Practical Implication       │
 ├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
 │ 1. Local Discovery Gap     │ -7.05 percentage points     │ In-app algorithm reliance   │
 │                            │ (41.45% -> 34.21%)          │ drops for local tracks.     │
@@ -223,8 +223,8 @@ The survey data ($N = 152$) highlights three main patterns:
 │ 2. The Broken Metric       │ p = 0.086 (Mann-Whitney U)  │ Satisfaction ratings do not │
 │    Decoupling              │ Mean = 5.83 / 7.0           │ reflect local discovery.    │
 ├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
-│ 3. Platform-Hopping        │ 100% Rule Confidence        │ Listeners keep multiple      │
-│    Workaround (Apriori)    │ Lift = 1.15                 │ services as a workaround. │
+│ 3. Platform-Hopping        │ 100% Rule Confidence        │ Listeners keep multiple     │
+│    Workaround (Apriori)    │ Lift = 1.15                 │ services as a workaround.   │
 └────────────────────────────┴─────────────────────────────┴─────────────────────────────┘
 ```
 
@@ -238,8 +238,8 @@ The survey data ($N = 152$) highlights three main patterns:
 
 ### Pilot Boundaries
 As detailed in [Appendix F: Pilot Limitations](./docs/appendix_f_limitations.md), this pilot has clear constraints:
-- **Sample Size ($N=152$):** A sample-to-feature ratio of $\frac{N}{p} \approx 3.62$ and a Minimum Detectable Effect of $d_{\text{MDE}} = 0.457$ mean the dataset cannot reliably fit supervised predictive classifiers.
-- **Geographic Concentration:** Over $50\%$ of respondents live in Gauteng, reflecting urban connectivity rather than rural realities where mobile data tariffs (R85–R120/GB) lead to offline sharing through local hubs like taxi ranks.
+- **Sample Size ($N=152$):** A sample-to-feature ratio of $\frac{N}{p} \approx 3.62$ and a Minimum Detectable Effect of $d_{\text{MDE}} = 0.457$ means the dataset cannot reliably fit supervised predictive classifiers.
+- **Geographic Concentration:** Over $50\%$ of respondents live in Gauteng, reflecting urban connectivity rather than rural realities where mobile data tariffs (R85-R120/GB) lead to offline sharing through local hubs like taxi ranks.
 - **Categorical Sparsity:** High-cardinality cross-tabulations show cell counts below 5 in $91.7\%$ of cells, violating Cochran's criterion for chi-square tests.
 
 ---
@@ -264,7 +264,7 @@ Scaling this pilot to a nationally representative cohort ($N = 5,000$) across al
 
 ## Ethical Considerations & Broader Impact
 
-Deploying algorithmic recommendation systems in post-apartheid South Africa carries significant socio-technical implications. The pilot survey data ($N=152$) is primarily urban-centric and concentrated in Gauteng, introducing structural selection bias that fails to reflect rural listening patterns or the constraints of high mobile data tariffs. Relying on such data to align recommendation committees risks reinforcing existing socio-economic disparities. Furthermore, applying social choice frameworks like SCRUF-D or hyperspherical alignment models to "preserve" culture inherently relies on categorizing artistic expression into static subgenre boundaries. This algorithmic classification may inadvertently flatten the dynamic, hybrid, and evolving nature of South African music scenes, turning fluid cultural identities into fixed mathematical constraints.
+Deploying algorithmic recommendation systems in post-apartheid South Africa carries major socio-technical implications. The pilot survey data ($N=152$) concentrates in Gauteng, introducing structural selection bias that fails to reflect rural listening patterns or high mobile data tariffs. Relying on this data to align recommendation committees risks reinforcing socio-economic disparities. Applying social choice frameworks like SCRUF-D or hyperspherical alignment models to preserve culture relies on categorizing artistic expression into static subgenre boundaries. This classification can flatten the dynamic, hybrid, and evolving nature of South African music scenes, turning fluid cultural identities into fixed mathematical constraints.
 
 ## Citation
 

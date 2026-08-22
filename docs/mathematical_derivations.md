@@ -35,7 +35,7 @@ Expected exposure $a_T(i)$ and interaction accumulation $\Delta Y_{T, ui}$ durin
 $$a_T(i) = \sum_{u \in \mathcal{U}} \pi_T(i \mid u)$$
 $$Y_{T+1, ui} = Y_{T, ui} + B_{T, ui}, \quad \text{where } B_{T, ui} \sim \text{Bernoulli}\left(\pi_T(i \mid u) \cdot A_{ui} \cdot \kappa(C_{ui})\right)$$
 
-The training set updates recursively:
+We update the training set recursively:
 $$\mathcal{D}_{T+1} = \mathcal{D}_T \cup \{(u, i) \mid B_{T, ui} = 1\}$$
 
 ---
@@ -60,7 +60,7 @@ where $\bar{y}_{T+1}^{(d)} = \mathbb{E}_{u}[\hat{y}_{T+1, ud}]$ and $\bar{y}_{T+
 
 ## 3. Proof of Superlinear Escalation ($\alpha > 1$)
 
-We show that disparity evolves according to a power law:
+We show that disparity follows a power law:
 $$\rho_{T+1} \propto \left( \rho_T \right)^\alpha \quad \text{with} \quad \alpha > 1$$
 
 ---
@@ -75,7 +75,7 @@ $$\alpha = 1 + \eta \cdot \Gamma > 1$$
 ### Proof:
 
 #### Step 1: Gradient Updates for Item Embeddings
-Under gradient descent, the update for item embedding $\mathbf{v}_i$ between epochs $T$ and $T+1$ is:
+Under gradient descent, the model updates item embedding $\mathbf{v}_i$ between epochs $T$ and $T+1$ as follows:
 $$\mathbf{v}_{T+1, i} = \mathbf{v}_{T, i} + \eta \sum_{u \in \mathcal{U}} Y_{T, ui} \mathbf{u}_{T, u} - \eta \lambda_{\text{reg}} \mathbf{v}_{T, i}$$
 
 Taking the expectation conditioned on policy $\pi_T$:
@@ -177,7 +177,7 @@ Without spherical constraints and exposure regularization, unconstrained optimis
 
 ## 6. Spherical In-Processing Countermeasures
 
-To cap escalation ($\alpha \le 1$), the in-processing method in `representation-alignment/` uses a three-part loss:
+To cap escalation ($\alpha \le 1$), the model uses a three-part loss during representation alignment:
 
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{recon}} + \lambda_{\text{proto}} \mathcal{L}_{\text{proto}} + \lambda_{\text{gini}} \mathcal{L}_{\text{gini}}$$
 
@@ -198,6 +198,6 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{recon}} + \lambda_{\text{proto
 
 ## References
 
-1. **Mansoury, M., Abdollahpouri, H., Pechenizkiy, M., Mobasher, B., & Burke, R.** (2020). *Feedback Loop and Bias Amplification in Recommender Systems*. Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM '20), pp. 2145–2148.
+1. **Mansoury, M., Abdollahpouri, H., Pechenizkiy, M., Mobasher, B., & Burke, R.** (2020). *Feedback Loop and Bias Amplification in Recommender Systems*. Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM '20), pp. 2145-2148.
 2. **Truong, Q. T., Salah, A., & Lauw, H. W.** (2025). *Mitigating Feedback Loops in Latent Representation Recommenders*. IEEE Transactions on Knowledge and Data Engineering (TKDE).
-3. **Burke, R., Sonboli, N., & Ordonez-Gauger, A.** (2018). *Balanced Neighbourhoods for Multi-Sided Fairness in Recommendation*. In Conference on Fairness, Accountability and Transparency (FAT*), pp. 202–214.
+3. **Burke, R., Sonboli, N., & Ordonez-Gauger, A.** (2018). *Balanced Neighbourhoods for Multi-Sided Fairness in Recommendation*. In Conference on Fairness, Accountability and Transparency (FAT*), pp. 202-214.

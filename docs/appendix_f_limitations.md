@@ -9,7 +9,7 @@
 
 This document details the statistical and architectural limitations of the current pilot study ($N = 152$ survey responses, $M = 54$ prototype embedding vectors).
 
-While the dual-paradigm framework, combining **Paradigm A (Post-Processing Decision Boundary Alignment via SCRUF-D)** and **Paradigm B (In-Processing Hyperspherical Two-Tower Neural Networks on $\mathbb{S}^{D-1}$)**, demonstrates working proofs of concept, claims must be interpreted within the data constraints documented below.
+While the dual-paradigm framework, combining **Paradigm A (Post-Processing Decision Boundary Alignment via SCRUF-D)** and **Paradigm B (In-Processing Hyperspherical Two-Tower Neural Networks on $\mathbb{S}^{D-1}$)**, demonstrates working proofs of concept, we must interpret claims within the data constraints documented below.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -38,12 +38,12 @@ While the dual-paradigm framework, combining **Paradigm A (Post-Processing Decis
 ### A. Sample Size and Power Constraints ($N=152$)
 
 #### 1. Sample-to-Feature Ratio in Supervised Machine Learning
-When encoding user demographic states, platform choices, genre preferences, and discovery paths, feature dimension $p$ reaches $p \approx 35\text{--}48$.
+When we encode user demographic states, platform choices, genre preferences, and discovery paths, the feature dimension $p$ reaches $p \approx 35-48$.
 
 With sample size $N = 152$, the ratio is:
 $$\frac{N}{p} \approx \frac{152}{42} \approx 3.62$$
 
-Supervised non-parametric models (such as Random Forests or Gradient Boosted Trees) typically require $\frac{N}{p} \gg 20$ to prevent overfitting to respondent-level noise:
+Supervised non-parametric models (such as Random Forests or Gradient Boosted Trees) require $\frac{N}{p} \gg 20$ to prevent overfitting to respondent-level noise:
 $$\mathbb{E}_{\mathcal{D}}\left[ \left( f(X; \mathcal{D}) - f^*(X) \right)^2 \right] = \operatorname{Bias}^2(f) + \operatorname{Var}_{\mathcal{D}}(f)$$
 In this pilot sample, supervised predictive models risk memorizing idiosyncratic responses rather than learning true population patterns.
 
@@ -79,12 +79,12 @@ $$\text{Scale} \in \{1, 2, 3, 4, 5, 6, 7\}, \quad \text{Mean} = 5.828, \quad \te
 ```
 
 #### Invalidation of Parametric Assumptions
-Parametric models (ANOVA, two-sample $t$-tests) assume normally distributed residuals with equal variance across groups:
+Parametric models (such as ANOVA and two-sample t-tests) assume normally distributed residuals with equal variance across groups:
 $$Y_{ij} = \mu + \alpha_i + \epsilon_{ij}, \quad \epsilon_{ij} \sim \mathcal{N}(0, \sigma^2)$$
 
-Because ratings are capped at $7.0$ and heavily clustered at $6.0$ and $7.0$, residual variance is heteroscedastic ($\sigma_7^2 \ll \sigma_3^2$). This justifies our use of **rank-based non-parametric tests** in `src/kulture/analysis/pipeline.py`:
-- **Mann-Whitney $U$ Test:** Tests whether one distribution stochastically dominates another without assuming normality.
-- **Kruskal-Wallis $H$ Test:** Evaluates differences in mean ranks across multiple categorical groups ($k \ge 3$).
+Because ratings cap at 7.0 and cluster at 6.0 and 7.0, the residual variance is heteroscedastic ($\sigma_7^2 \ll \sigma_3^2$). This justifies our use of rank-based non-parametric tests in `src/kulture/analysis/pipeline.py`:
+- **Mann-Whitney U Test:** Tests whether one distribution stochastically dominates another without assuming normality.
+- **Kruskal-Wallis H Test:** Evaluates differences in mean ranks across multiple categorical groups ($k \ge 3$).
 
 ---
 
@@ -110,15 +110,15 @@ $$\text{Gauteng} = 76 / 152 \quad (50.0\%), \quad \text{Metropolitan Total (Gaut
 ```
 
 #### Rural Context
-The pilot represents urban listeners with broadband, home fibre, or workplace Wi-Fi. It does not capture rural listening habits where:
-1. **Data Costs:** In rural areas, mobile data costs (R85–R120/GB) discourage unmetered high-bitrate streaming.
+The pilot represents urban listeners with broadband, home fiber, or workplace Wi-Fi. It fails to capture rural listening habits where:
+1. **Data Costs:** In rural areas, mobile data costs (R85-R120/GB) discourage unmetered high-bitrate streaming.
 2. **Offline Sharing:** Subgenres like Lekompo, traditional Maskandi, and Xitsonga Electro often circulate offline via USB flash drives at local taxi ranks, Bluetooth transfers, and community events.
 
 ---
 
 ### D. Contingency Table Sparsity
 
-In `notebooks/categorical_analysis.py`, high-cardinality cross-tabulations triggered cell count warnings.
+In `notebooks/categorical_analysis.py`, high-cardinality cross-tabulations trigger cell count warnings.
 
 #### Cochran's Criterion
 For **`province` vs. `discovery_method`** ($13 \times 7$ table, $\text{dof} = 55$):
@@ -127,13 +127,13 @@ $$\text{Total Cells} = 91, \quad \text{Cells with Expected Count } E_{ij} < 5 = 
 
 Cochran's standard rule for chi-square validity requires that no cell has expected frequency $E_{ij} < 1.0$ and at most $20\%$ of cells have $E_{ij} < 5.0$. 
 
-Because **$91.67\%$ of cells have expected counts below 5**, the nominal test statistic ($\chi^2 = 80.258, p = 0.0148$) reflects table sparsity rather than true demographic divergence. We caution against treating provincial discovery differences in this pilot as conclusive population estimates.
+Because $91.67\%$ of cells have expected counts below 5, the nominal test statistic ($\chi^2 = 80.258, p = 0.0148$) reflects table sparsity rather than demographic divergence. We do not recommend treating provincial discovery differences in this pilot as conclusive population estimates.
 
 ---
 
 ### E. Latent Space Dimensionality and t-SNE Bounds
 
-In `representation-alignment/src/plot_embeddings.py`, the embedding visualization uses:
+In `representation-alignment/src/plot_embeddings.py`, we visualize embeddings using:
 $$N_{\text{total}} = N_{\text{items}} + N_{\text{prototypes}} = 50 + 4 = 54 \text{ vectors}$$
 
 #### t-SNE Perplexity Clamping
@@ -200,7 +200,7 @@ With $N = 5,000$, the sample-to-feature ratio expands to $\frac{N}{p} \approx \f
 ## References
 
 1. **Hastie, T., Tibshirani, R., & Friedman, J.** (2009). *The Elements of Statistical Learning: Data Mining, Inference, and Prediction* (2nd ed.). Springer.
-2. **van der Maaten, L., & Hinton, G.** (2008). *Visualizing Data using t-SNE*. Journal of Machine Learning Research, 9(86), 2579–2605.
-3. **Wang, Y., & Blei, D. M.** (2019). *The Blessings of Multiple Causes*. Journal of the American Statistical Association, 114(528), 1574–1596.
-4. **Cochran, W. G.** (1954). *Some Methods for Strengthening the Common $\chi^2$ Tests*. Biometrics, 10(4), 417–451.
+2. **van der Maaten, L., & Hinton, G.** (2008). *Visualizing Data using t-SNE*. Journal of Machine Learning Research, 9(86), 2579-2605.
+3. **Wang, Y., & Blei, D. M.** (2019). *The Blessings of Multiple Causes*. Journal of the American Statistical Association, 114(528), 1574-1596.
+4. **Cochran, W. G.** (1954). *Some Methods for Strengthening the Common $\chi^2$ Tests*. Biometrics, 10(4), 417-451.
 5. **Statistics South Africa.** (2023). *Census 2022: Statistical Release*. Stats SA Report No. 03-01-22.

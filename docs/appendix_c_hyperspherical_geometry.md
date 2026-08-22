@@ -1,13 +1,9 @@
 # Appendix C: Hyperspherical Representation Geometry and Prototype Alignment on $\mathbb{S}^{D-1}$
-
-**Author:** Shailoh (Independent Socio-Technologist & ML Practitioner)  
-**Target Repository:** `for the kulture`  
-
 ---
 
 ## 1. Geometric Motivation: Why Euclidean $\mathbb{R}^D$ Fails in Cultural Curation
 
-In standard Euclidean collaborative filtering (such as matrix factorization or unconstrained Two-Tower networks), an embedding $\mathbf{z} \in \mathbb{R}^D$ combines two properties into a single vector:
+Standard Euclidean collaborative filtering (such as matrix factorization or unconstrained Two-Tower networks) combines two properties into a single embedding vector $\mathbf{z} \in \mathbb{R}^D$:
 1. **Magnitude ($\|\mathbf{z}\|_2$):** Scales with overall item interaction frequency and platform popularity.
 2. **Direction ($\mathbf{z} / \|\mathbf{z}\|_2$):** Encodes the latent acoustic and cultural characteristics of the music.
 
@@ -18,7 +14,7 @@ $$\hat{y}_{ui} = \|\mathbf{u}_u\|_2 \|\mathbf{v}_i\|_2 \cos \angle(\mathbf{u}_u,
 For chart-topping mainstream tracks $d \in \mathcal{I}_d$, repeated gradient updates inflate the vector norm:
 $$\|\mathbf{v}_d\|_2 \gg \|\mathbf{v}_p\|_2 \quad \forall \; p \in \mathcal{I}_p$$
 
-As a result, a dominant track $d$ receives high predicted affinity $\hat{y}_{ud}$ across nearly all users $u$, even when the angular match is poor ($\cos \angle(\mathbf{u}_u, \mathbf{v}_d) \ll 1$). Local subgenres (*Gqom, Lekompo, Maskandi*) with strong angular alignment get suppressed simply because their embedding norms are small ($\|\mathbf{v}_p\|_2 \approx 0$).
+As a result, a dominant track $d$ receives high predicted affinity $\hat{y}_{ud}$ across nearly all users $u$, even when the angular match is poor ($\cos \angle(\mathbf{u}_u, \mathbf{v}_d) \ll 1$). The model suppresses local subgenres (*Gqom, Lekompo, Maskandi*) with strong angular alignment simply because their embedding norms are small ($\|\mathbf{v}_p\|_2 \approx 0$).
 
 ---
 
@@ -59,7 +55,7 @@ where $\epsilon_{\text{norm}} = 10^{-8}$ prevents division by zero.
 
 ---
 
-## 3. Metric Properties and Euclidean–Cosine Equivalence
+## 3. Metric Properties and Euclidean-Cosine Equivalence
 
 On the sphere $(\mathbb{S}^{D-1}, g_{\mathbb{S}})$, geodesic distance $d_{\text{geo}}(\mathbf{x}, \mathbf{y})$ between points $\mathbf{x}, \mathbf{y} \in \mathbb{S}^{D-1}$ is:
 $$d_{\text{geo}}(\mathbf{x}, \mathbf{y}) = \arccos\langle \mathbf{x}, \mathbf{y} \rangle = \theta \in [0, \pi]$$
@@ -140,7 +136,7 @@ $$\tag*{$\blacksquare$}$$
 
 ## 6. Contrastive Properties: Alignment vs. Uniformity
 
-Following Wang & Isola (2020), representation quality on the sphere can be measured by alignment and uniformity:
+Following Wang & Isola (2020), we measure representation quality on the sphere using alignment and uniformity:
 
 1. **Alignment:**
    $$\mathcal{L}_{\text{align}}(f) \triangleq \mathbb{E}_{(x, x^+) \sim p_{\text{pos}}}\left[ \|f(x) - f(x^+)\|_2^2 \right]$$
@@ -155,7 +151,7 @@ In our network:
 
 ## References
 
-1. **Wang, T., & Isola, P.** (2020). *Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere*. Proceedings of the 37th International Conference on Machine Learning (ICML '20), PMLR 119:9929–9939.
+1. **Wang, T., & Isola, P.** (2020). *Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere*. Proceedings of the 37th International Conference on Machine Learning (ICML '20), PMLR 119:9929-9939.
 2. **Mettes, P., van der Pol, E., & Snoek, C. G.** (2019). *Hyperspherical Prototype Networks*. Advances in Neural Information Processing Systems (NeurIPS 2019), 32.
 3. **Snell, J., Swersky, K., & Zemel, R.** (2017). *Prototypical Networks for Few-shot Learning*. Advances in Neural Information Processing Systems (NeurIPS 2017), 30.
-4. **Cohn, H., & Kumar, A.** (2007). *Universally optimal distribution of points on spheres*. Journal of the American Mathematical Society, 20(1), 99–148.
+4. **Cohn, H., & Kumar, A.** (2007). *Universally optimal distribution of points on spheres*. Journal of the American Mathematical Society, 20(1), 99-148.

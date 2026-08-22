@@ -1,13 +1,10 @@
 # Appendix B: Formalizing the Inversion Problem and Causal Deconfounding in Preference Elicitation
 
-**Author:** Shailoh (Independent Socio-Technologist & ML Practitioner)  
-**Target Repository:** `for the kulture`  
-
 ---
 
 ## 1. Structural Causal Model: Directed Acyclic Graph (DAG)
 
-In recommender systems, user streaming logs do not provide an unfiltered readout of user taste. Observed behaviour is filtered through platform interface choices, position bias, and catalog availability.
+In recommendation systems, streaming logs do not reflect unfiltered user taste. Interface choices, position bias, and catalog availability filter observed behaviour.
 
 ### 1.1 Structural Equations
 Let the data-generating process be $\mathcal{M} = \langle \mathbf{V}, \mathbf{U}, \mathcal{F}, P(\mathbf{U}) \rangle$, where:
@@ -55,7 +52,7 @@ where $\kappa(C_{ui}) \in (0, 1]$ accounts for position and interface friction, 
 
 ## 2. The Inversion Problem: Proof of Observational Bias
 
-The **Inversion Problem** occurs when a recommendation engine treats observed streams $B$ as direct measurements of latent preference $M$:
+The Inversion Problem occurs when recommendation engines treat observed streams $B$ as direct measurements of latent preference $M$:
 $$\mathbb{P}(M \mid B = 1) \stackrel{?}{\propto} \mathbb{P}(B = 1 \mid M)$$
 
 Platform delivery constraints $C$ break this equivalence.
@@ -63,7 +60,7 @@ Platform delivery constraints $C$ break this equivalence.
 ---
 
 ### Theorem 1 (The Inversion Non-Equivalence)
-*Let $M \in \{0, 1\}$ denote latent preference and $B \in \{0, 1\}$ denote observed streaming. Under non-uniform exposure constraints $C \in \{0, 1\}$ with $\mathbb{P}(C = 1 \mid M) \neq 1$, observed behaviour is confounded:*
+*Let $M \in \{0, 1\}$ denote latent preference and $B \in \{0, 1\}$ denote observed streaming. Under non-uniform exposure constraints $C \in \{0, 1\}$ with $\mathbb{P}(C = 1 \mid M) \neq 1$, platform constraints confound observed behaviour:*
 $$\mathbb{P}(B = 1 \mid M, C) \neq \mathbb{P}(B = 1 \mid M)$$
 *Naive posterior estimates $\hat{\mathbb{P}}(M = 1 \mid B = 1)$ overestimate mainstream popularity and underestimate demand for unpromoted local subgenres.*
 
@@ -228,5 +225,5 @@ where $\mathcal{G}_{\text{local}} = \{\text{Gqom}, \text{Lekompo}, \text{Maskand
 1. **Pearl, J.** (2009). *Causality: Models, Reasoning, and Inference* (2nd ed.). Cambridge University Press.
 2. **Truong, Q. T., Salah, A., & Lauw, H. W.** (2025). *Mitigating Feedback Loops in Latent Representation Recommenders*. IEEE Transactions on Knowledge and Data Engineering (TKDE).
 3. **Krauth, K., Dean, S., Zhao, A., Jiang, W., & Jordan, M. I.** (2022). *Do Offline Metrics Predict Online Performance in Recommender Systems?* Proceedings of the 36th Conference on Neural Information Processing Systems (NeurIPS 2022).
-4. **Schnabel, T., Swaminathan, A., Singh, A., Chandak, N., & Joachims, T.** (2016). *Recommendations as Treatments: Debiasing Learning and Evaluation*. In International Conference on Machine Learning (ICML '16), pp. 1670–1679.
-5. **Burke, R., Sonboli, N., & Ordonez-Gauger, A.** (2018). *Balanced Neighbourhoods for Multi-Sided Fairness in Recommendation*. In Conference on Fairness, Accountability and Transparency (FAT*), pp. 202–214.
+4. **Schnabel, T., Swaminathan, A., Singh, A., Chandak, N., & Joachims, T.** (2016). *Recommendations as Treatments: Debiasing Learning and Evaluation*. In International Conference on Machine Learning (ICML '16), pp. 1670-1679.
+5. **Burke, R., Sonboli, N., & Ordonez-Gauger, A.** (2018). *Balanced Neighbourhoods for Multi-Sided Fairness in Recommendation*. In Conference on Fairness, Accountability and Transparency (FAT*), pp. 202-214.
