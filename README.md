@@ -26,6 +26,7 @@ This repository presents a mixed-methods explanatory sequential pilot study ($\t
 While rooted in South African data, this pilot acts as a proof of concept for a pattern seen across the continent. In Nigeria, for example, the track *Okunkun* by Solana and Killertunes blends Yoruba cultural language with 1980s and 1990s pop-rock musical elements into a style known locally as YuroPop. Streaming platforms currently bucket it under generic Afrobeats. When platforms force artists into broad commercial categories to get discovered, they flatten distinct local styles into a single global sound.
 
 ![Map of Southern African cultural groups](./docs/african_heritage_map.jpeg)
+
 *Map Source: African Heritage by Peter Jurgens, illustrated by Barbara Tyrell.*
 
 We identify two structural patterns in the survey data:
@@ -178,7 +179,9 @@ Paradigm A adjusts slate rankings during post-processing. It frames item selecti
 
 #### Slate Selection:
 The committee combines agent preference scores into a composite score $U(u, i) = w_e s_e + w_a s_a + w_p s_p$ and runs an $\mathcal{O}(M \log M)$ greedy matroid exchange to ensure at least $Q_g$ local items in the top-$K$ slate:
+
 $$\sum_{i \in \mathcal{S}_u^K} \mathbb{I}\left(\text{genre}(i) \in \mathcal{G}_{\text{local}}\right) \ge Q_g$$
+
 *(See [Appendix D: Social Choice & SCRUF-D](./docs/appendix_d_social_choice_scruf_d.md)).*
 
 ---
@@ -197,12 +200,19 @@ $$\min_{\Theta} \mathcal{L}_{\text{total}} = \mathcal{L}_{\text{recon}} + \lambd
 
 Where:
 - **Reconstruction MSE:**
+
   $$\mathcal{L}_{\text{recon}} = \frac{1}{N M} \sum_{u=1}^N \sum_{i=1}^M \left( \langle \mathbf{u}_u, \mathbf{v}_i \rangle - Y_{ui} \right)^2$$
+
 - **Prototype Compactness & Separation Loss:**
+
   $$\mathcal{L}_{\text{proto}} = \frac{1}{M}\sum_{i=1}^M \left(1 - \max_k \langle \mathbf{v}_i, \mathbf{p}_k \rangle\right) + \frac{0.5}{K(K-1)}\sum_{j \neq k} \langle \mathbf{p}_j, \mathbf{p}_k \rangle$$
+
   Pulls item vectors toward their subgenre prototypes while pushing prototype centroids apart into a regular simplex ($\theta_{\min} = 109.47^\circ$).
+
 - **Smooth Differentiable Gini Exposure Loss:**
+
   $$\mathcal{L}_{\text{gini}} = \frac{\sum_{i=1}^M \sum_{j=1}^M \sqrt{(e_i - e_j)^2 + \epsilon}}{2 M \left( \sum_{i=1}^M e_i + \epsilon_{\text{denom}} \right)}, \quad \text{where } e_i = \sum_{u=1}^N \hat{y}_{ui}$$
+
   Provides stable, $\mathcal{C}^\infty$ smooth gradients for exposure distribution without subgradient chatter. *(See [Appendix E: Differentiable Gini Optimisation](./docs/appendix_e_smooth_gini_optimization.md))*.
 
 ---
