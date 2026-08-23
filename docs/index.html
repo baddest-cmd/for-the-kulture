@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Streaming Optimization Audit | Journey Map</title>
+    <!-- Google Fonts for Basquiat Vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    
+    <header class="hero section-reveal">
+        <div class="hero-content">
+            <h1 class="basquiat-title">END-TO-END <br> USER JOURNEY MAP</h1>
+            <h2 class="basquiat-subtitle">MUSIC STREAMING OPTIMIZATION AUDIT</h2>
+            <p class="hero-desc">Synthesising live application data and qualitative researcher notes.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="curve-section section-reveal">
+            <div class="container">
+                <h2 class="section-title">JOURNEY CURVE AT A GLANCE</h2>
+                <p>Below is the plotted emotional curve tracking the researcher's qualitative journey across the six critical phases.</p>
+                <div class="image-wrapper">
+                    <img src="journey-map-curve-v2.png" alt="Emotional Journey Curve">
+                </div>
+            </div>
+        </section>
+
+        <section class="matrix-section">
+            <div class="container">
+                <h2 class="section-title">CHRONOLOGICAL JOURNEY MATRIX</h2>
+                
+                <div class="grid-container">
+                    <!-- Stage 1 -->
+                    <article class="card stage-card section-reveal">
+                        <div class="card-header">
+                            <span class="stage-num">01</span>
+                            <h3>Catalog Seeding & Onboarding</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Persona:</strong> Highly Habitual power-user and researcher.</p>
+                            <p><strong>Phase Goal:</strong> Bypass the algorithmic "cold start" recommendation loop by migrating a massive historical music catalog.</p>
+                            <div class="score positive">+4 (High Anticipation)</div>
+                            <p><strong>Pain Points:</strong> Time-consuming manual configuration, but fueled by positive expectations.</p>
+                            <blockquote class="quote">"Got excited after importing my Apple music catalog thinking I would at least not have to do the heavy lifting."</blockquote>
+                            <p><strong>BE Lens (Optimism Bias):</strong> Overestimating the platform's ability to seamlessly ingest and align recommended tracks with historical data.</p>
+                            <div class="recommendation"><strong>Fix:</strong> Introduce inline progress transparency and provide an immediate confirmation check explaining how the imported catalog is mapped.</div>
+                        </div>
+                    </article>
+
+                    <!-- Stage 2 -->
+                    <article class="card stage-card section-reveal">
+                        <div class="card-header">
+                            <span class="stage-num">02</span>
+                            <h3>Device Connection & Playback Initialisation</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Persona:</strong> Active Focus Listener.</p>
+                            <p><strong>Phase Goal:</strong> Establish a stable wireless pairing with external physical speakers and start playback smoothly.</p>
+                            <div class="score negative">-2 (Frustrated)</div>
+                            <p><strong>Pain Points:</strong> The interface stalls on a circling loader icon, signaling that wireless pairing is automated, when in fact it requires the user to manually click the targeted device.</p>
+                            <blockquote class="quote">"A circling icon led them to believe the connection was in progress, but they actually needed to click on the device."</blockquote>
+                            <p><strong>BE Lens (Mental Model Violation):</strong> Design pattern masks an active choice as an automated system state.</p>
+                            <div class="recommendation"><strong>Fix:</strong> Replace the ambiguous circling icon with high-contrast text or a pulsing button indicator.</div>
+                        </div>
+                    </article>
+
+                    <!-- Stage 3 -->
+                    <article class="card stage-card section-reveal">
+                        <div class="card-header">
+                            <span class="stage-num">03</span>
+                            <h3>Algorithmic Feed Failure</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Persona:</strong> Cultural Music Consumer.</p>
+                            <p><strong>Phase Goal:</strong> Navigate the generated home feed to discover relevant music that fits established tastes.</p>
+                            <div class="score stark-negative">-5 (Trust Broken)</div>
+                            <p><strong>Pain Points:</strong> Total erasure of imported history. The home feed is flooded with generic local defaults—specifically Gospel music.</p>
+                            <blockquote class="quote">"Gospel is popular in South Africa but I will be honest I have never in my life played a gospel song. This disappointed me."</blockquote>
+                            <p><strong>BE Lens (Socioeconomic Incongruence):</strong> Applying lazy, sweeping macro-regional defaults over explicit micro-user preferences.</p>
+                            <div class="recommendation"><strong>Fix:</strong> Implement strict fallback guardrails that weight direct user-seeded library history at 80%.</div>
+                        </div>
+                    </article>
+
+                    <!-- Stage 4 -->
+                    <article class="card stage-card section-reveal">
+                        <div class="card-header">
+                            <span class="stage-num">04</span>
+                            <h3>Focus Work & Playback Loop Gaps</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Persona:</strong> Deep Focus Worker.</p>
+                            <p><strong>Phase Goal:</strong> Loop curated focus playlists (such as airplane mode) to block out background noise during work sessions.</p>
+                            <div class="score negative">-3 (Distracted)</div>
+                            <p><strong>Pain Points:</strong> Playlists on repeat halt completely after the last track instead of looping. Unrelated content is forcefully appended via intrusive autoplay.</p>
+                            <blockquote class="quote">"Auto-play maybe off but respect my input repeat the playlist tho ????"</blockquote>
+                            <p><strong>BE Lens (Habit Disruption):</strong> Intrusive, automated media loading shifts the user from a state of low-effort focus back to a high-effort state.</p>
+                            <div class="recommendation"><strong>Fix:</strong> Fix the repetition system so repeat strictly confines playback to the user's explicit playlist.</div>
+                        </div>
+                    </article>
+
+                    <!-- Stage 5 -->
+                    <article class="card stage-card section-reveal">
+                        <div class="card-header">
+                            <span class="stage-num">05</span>
+                            <h3>Cross-Platform Playlist Parity</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Persona:</strong> Mobile-first Commuter (South African Market Context).</p>
+                            <p><strong>Phase Goal:</strong> Stream or sync custom playlists for uninterrupted offline listening on mobile.</p>
+                            <div class="score negative">-4 (Restricted)</div>
+                            <p><strong>Pain Points:</strong> Severe parity gap—the web app displays and plays all 24 tracks, whereas the mobile app restricts the exact same playlist to only about 8 songs.</p>
+                            <blockquote class="quote">"mobile app experience is the most restricting currently... for the South African base B2C products need to mobile app first"</blockquote>
+                            <p><strong>BE Lens (Economic Detachment):</strong> Failing to optimize for a "mobile-first" South African consumer base experiencing extraordinarily high mobile data tariffs.</p>
+                            <div class="recommendation"><strong>Fix:</strong> Standardize core playlist syncing architecture across platforms.</div>
+                        </div>
+                    </article>
+
+                    <!-- Stage 6 -->
+                    <article class="card stage-card section-reveal">
+                        <div class="card-header">
+                            <span class="stage-num">06</span>
+                            <h3>The Vision for Proactive Delight</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Persona:</strong> Highly Engaged Habitual Listener.</p>
+                            <p><strong>Phase Goal:</strong> Stay effortlessly updated on new releases from favorite artists and immediately resume playback.</p>
+                            <div class="score positive">+5 (Ultimate Delight)</div>
+                            <p><strong>Delight Points:</strong> Context-aware, highly direct homescreen notifications and the lock screen resume banner.</p>
+                            <blockquote class="quote">"proactive music experience... esp for highly habitual listeners this is fire"</blockquote>
+                            <p><strong>BE Lens (Salience & Choice Architecture):</strong> Reducing the physical and cognitive path to action to absolute zero.</p>
+                            <div class="recommendation"><strong>Fix:</strong> Transition from a passive feed audit layout to proactive, highly tailored opt-in notifications.</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="table-section section-reveal">
+            <div class="container">
+                <h2 class="section-title">BEHAVIOURAL ECONOMICS NUDGES & ROADMAP</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Friction Point</th>
+                                <th>BE Principle</th>
+                                <th>Design Implication</th>
+                                <th>Ideation (Future State)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>User ignores home feed recommendations due to irrelevant local Gospel content</td>
+                                <td><strong>Socioeconomic Bias</strong></td>
+                                <td>Match recommendations strictly to user-seeded catalog history rather than broad geographical buckets.</td>
+                                <td><strong>Seeded Playlist Match:</strong> "Because you migrated 5k tracks: Here is your Hip-Hop & House mix"</td>
+                            </tr>
+                            <tr>
+                                <td>Stalls at circling pairing icon; speaker connection breaks</td>
+                                <td><strong>Mental Model Violation</strong></td>
+                                <td>Loading feedback must never represent a stagnant, passive connection state if action is needed.</td>
+                                <td><strong>Active Device Callout:</strong> Transform circling icon to pulsing target text: "Tap device name to finish pairing."</td>
+                            </tr>
+                            <tr>
+                                <td>Focus playlist stops or injects loud video advertisements</td>
+                                <td><strong>Habit Disruption</strong></td>
+                                <td>Protect deep cognitive focus states by strictly respecting user repeat inputs.</td>
+                                <td><strong>Focus Mode Toggle:</strong> Disable all video feeds and algorithmic autoplay append actions when a focus playlist is repeated</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile app drops 16 of the 24 curated offline songs</td>
+                                <td><strong>Economic Tariff Friction</strong></td>
+                                <td>Mobile applications in high-cost data regions must prioritize data-saving over streaming.</td>
+                                <td><strong>Mobile-First Parity Guard:</strong> Automatic desktop-to-mobile parity sync with data-saving compression and background download features</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>MUSIC STREAMING OPTIMIZATION AUDIT &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

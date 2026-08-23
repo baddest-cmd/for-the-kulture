@@ -1,0 +1,291 @@
+:root {
+    --bg-canvas: #f4f0e6;
+    --text-main: #111111;
+    --accent-red: #e83131;
+    --accent-yellow: #f2cf05;
+    --accent-blue: #2c53a3;
+    --accent-green: #37a85c;
+    --font-basquiat: 'Rock Salt', cursive;
+    --font-body: 'Space Grotesk', sans-serif;
+    --thick-border: 4px solid #111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-canvas);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Typography */
+.basquiat-title {
+    font-family: var(--font-basquiat);
+    font-size: 4rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--accent-red);
+    text-shadow: 4px 4px 0px var(--accent-yellow);
+    transform: rotate(-2deg);
+}
+
+.basquiat-subtitle {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background-color: var(--text-main);
+    color: var(--bg-canvas);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    transform: rotate(1deg);
+}
+
+.section-title {
+    font-family: var(--font-basquiat);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: var(--thick-border);
+    padding-bottom: 1rem;
+    display: inline-block;
+}
+
+/* Sections */
+section {
+    padding: 6rem 0;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 8px solid var(--text-main);
+    background: radial-gradient(circle at top left, rgba(242, 207, 5, 0.2), transparent 40%),
+                radial-gradient(circle at bottom right, rgba(44, 83, 163, 0.2), transparent 40%);
+}
+
+.hero-desc {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 700;
+    border: var(--thick-border);
+    padding: 1rem;
+    background: var(--bg-canvas);
+    box-shadow: 8px 8px 0px var(--accent-blue);
+}
+
+.curve-section {
+    background-color: var(--accent-yellow);
+    border-bottom: 8px solid var(--text-main);
+}
+
+.image-wrapper {
+    margin-top: 2rem;
+    border: var(--thick-border);
+    background: white;
+    padding: 1rem;
+    box-shadow: 12px 12px 0px var(--text-main);
+    transform: rotate(-1deg);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid var(--text-main);
+}
+
+/* Grid & Cards */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.card {
+    background: var(--bg-canvas);
+    border: var(--thick-border);
+    box-shadow: 10px 10px 0px var(--text-main);
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0px var(--text-main);
+}
+
+.card:nth-child(even) {
+    box-shadow: 10px 10px 0px var(--accent-blue);
+}
+.card:nth-child(even):hover {
+    box-shadow: 15px 15px 0px var(--accent-blue);
+}
+
+.card:nth-child(3n) {
+    box-shadow: 10px 10px 0px var(--accent-red);
+}
+.card:nth-child(3n):hover {
+    box-shadow: 15px 15px 0px var(--accent-red);
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--text-main);
+    padding-bottom: 1rem;
+}
+
+.stage-num {
+    font-family: var(--font-basquiat);
+    font-size: 3rem;
+    color: var(--bg-canvas);
+    -webkit-text-stroke: 2px var(--text-main);
+    position: absolute;
+    top: -25px;
+    right: -15px;
+    background: var(--accent-yellow);
+    width: 70px;
+    height: 70px;
+    border: var(--thick-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(15deg);
+}
+
+.card-body p {
+    margin-bottom: 1rem;
+}
+
+.score {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    border: 2px solid var(--text-main);
+    margin-bottom: 1rem;
+    font-family: var(--font-basquiat);
+    font-size: 0.9rem;
+}
+
+.score.positive { background: var(--accent-green); color: white; }
+.score.negative { background: var(--accent-yellow); }
+.score.stark-negative { background: var(--accent-red); color: white; }
+
+.quote {
+    font-style: italic;
+    padding: 1rem;
+    border-left: 6px solid var(--text-main);
+    background: rgba(0,0,0,0.05);
+    margin: 1rem 0;
+    font-family: serif;
+    font-size: 1.1rem;
+}
+
+.recommendation {
+    background: var(--text-main);
+    color: var(--bg-canvas);
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border: 2px solid var(--text-main);
+}
+
+/* Table */
+.table-section {
+    background: var(--text-main);
+    color: var(--bg-canvas);
+    border-bottom: 8px solid var(--text-main);
+}
+
+.table-section .section-title {
+    color: var(--accent-yellow);
+    border-color: var(--bg-canvas);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: var(--bg-canvas);
+    color: var(--text-main);
+    border: var(--thick-border);
+    padding: 1rem;
+    box-shadow: 12px 12px 0px var(--accent-red);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1.5rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--text-main);
+}
+
+th {
+    font-family: var(--font-basquiat);
+    font-size: 1.2rem;
+    color: var(--accent-blue);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 4rem;
+    background: var(--bg-canvas);
+    font-weight: 700;
+    border-top: var(--thick-border);
+}
+
+/* Animations */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.section-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .basquiat-title { font-size: 2.5rem; }
+    .basquiat-subtitle { font-size: 1.2rem; }
+    .hero-desc { font-size: 1.2rem; }
+}
