@@ -84,7 +84,7 @@ This pilot raised more questions than it answered. The interaction between platf
                    └────────────────────────────────────────────────────────┘
 ```
 
-Self-funding kept this research independent of corporate sponsors, who often showcase local art without addressing the recommendation systems that distribute it.
+Self-funding kept this research independent of corporate sponsors, who often showcase local art and culture without addressing the recommendation systems that distribute it.
 
 Music is a high-signal domain for this study. When recommendation systems compress South African subgenres (*Amapiano, Gqom, Lekompo, Maskandi*) into a flat "World Music" category, they demonstrate how algorithms flatten cultural expression.
 This study is a starting point for auditing and aligning recommendation systems across African art and culture.
@@ -264,7 +264,7 @@ We welcome collaboration with research groups at Google Research and Google Deep
                         ├────────────────────────────────────────────────────────┤
                         │ 1. Multi-Cause Latent Deconfounding (MCLD) via VAEs    │
                         │ 2. National 9-Province Stratification (Rural Ingestion)│
-                        │ 3. 1,000,000+ Track Catalog on JAX Cloud TPU Clusters  │
+                        │ 3. 1,000,000+ Track Catalog on JAX Cloud Clusters      │
                         └────────────────────────────────────────────────────────┘
 ```
 
