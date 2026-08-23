@@ -283,11 +283,11 @@ If you use this repository or its research design in your work, please cite it a
 ```bibtex
 @misc{shailoh2026kulture,
   author       = {Shailoh},
-  title        = {Socio-Technical Alignment and Algorithmic Flattening: A Mixed-Methods Empirical Study of Local Music Curation in South Africa},
+  title        = {Socio-Technical Alignment and Algorithmic Flattening: A Mixed-Methods Empiric},
   year         = {2026},
   publisher    = {GitHub},
   journal      = {GitHub Repository},
-  howpublished = {\url{https://github.com/shailoh/for-the-kulture}}
+  howpublished = {\url{https://github.com/baddest-cmd/for-the-kulture}}
 }
 ```
 
