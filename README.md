@@ -1,5 +1,3 @@
-Here is the updated README in a single code block, with your advisor's "Interpretive stance" added directly to the end of the Abstract section where it serves as a strong, clear disclaimer before diving into the rest of the repository.
-
 ```markdown
 # Socio-Technical Alignment and Algorithmic Flattening in Local Music Curation
 
