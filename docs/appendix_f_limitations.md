@@ -1,8 +1,4 @@
 # Appendix F: Methodological, Statistical, and Architectural Limitations of the Pilot Study ($N=152$)
-
-**Author:** Shailoh (Independent Socio-Technologist & ML Practitioner)  
-**Target Repository:** `for the kulture`  
-
 ---
 
 ## 1. Summary of Pilot Constraints
