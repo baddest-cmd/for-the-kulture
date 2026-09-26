@@ -1,8 +1,4 @@
 # Appendix E: Mathematical Foundations of the Differentiable Gini Index, Lipschitz Smoothness, and Pareto Multi-Objective Optimisation
-
-**Author:** Shailoh (Independent Socio-Technologist & ML Practitioner)  
-**Target Repository:** `for the kulture`  
-
 ---
 
 ## 1. Formulation of the Discrete vs. Smooth Gini Index
