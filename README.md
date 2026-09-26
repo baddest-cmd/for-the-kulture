@@ -5,7 +5,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![JAX/Flax](https://img.shields.io/badge/JAX-Flax-red.svg)](https://github.com/google/jax)
 
-This repository contains the official implementation, empirical dataset, and dual-alignment algorithms for the paper **"Socio-Technical Alignment and Algorithmic Flattening: A Mixed-Methods Empirical Study of Local Music Curation in South Africa"** ($N=152$).
+This repository contains the official implementation, empirical dataset, and dual-alignment algorithms for the technical report **"Socio-Technical Alignment and Algorithmic Flattening: A Mixed-Methods Empirical Study of Local Music Curation in South Africa"** ($N=152$).
 
 ---
 
@@ -14,7 +14,7 @@ This repository contains the official implementation, empirical dataset, and dua
 Commercial collaborative filtering recommenders systematically flatten localized South African music subgenres (*Motswako, Gqom, Lekompo, Mbaqanga, Bacardi*) into broad regional categories. This study investigates two primary empirical failure modes:
 
 1. **The Inversion Problem:** Delivery constraints $C$ bias observed consumer behaviour $B$, where $P(B \mid M, C) \neq P(B \mid M)$.
-2. **Metric Decoupling:** Respondent satisfaction scores ($\mu = 5.83 / 7.0$) show no statistically significant relationship with local discovery success ($p = 0.086$, Mann-Whitney $U = 1826.5$). Reliance on in-app recommendation algorithms drops by **7.05 percentage points** (41.45% to 34.21%) when users search specifically for localized subgenres.
+2. **Metric Decoupling:** Respondent satisfaction and local discovery success were not significantly associated ($p=0.086$), though the pilot is underpowered to detect small effects ([Appendix F](./docs/appendix_f_limitations.md)). Reliance on in-app recommendation algorithms drops by **7.05 percentage points** (41.45% to 34.21%) when users search specifically for localized subgenres.
 
 To mitigate algorithmic flattening, we evaluate two counter-alignment paradigms:
 
@@ -55,7 +55,6 @@ $$U(u, i) = w_e s_e(u,i) + w_a s_a(u,i) + w_p s_p(u,i)$$
 
 $$s_a(u,i) = \hat{y}_{ui} - \beta \cdot \max(0, \tau_c(u)) \cdot \Phi(i)$$
 
-
 * **Adversarial Preserver ($s_p$):** Enforces local subgenre quotas $Q_g$ using an $\mathcal{O}(M \log M)$ greedy matroid exchange.
 
 ### Paradigm B: Spherical Two-Tower Model (JAX/Flax)
@@ -73,8 +72,8 @@ $$\mathcal{L}_{\text{gini}} = \frac{\sum_{i=1}^M \sum_{j=1}^M \sqrt{(e_i - e_j)^
 | Metric / Phenomenon | Quantitative Result | Empirical Implication |
 | --- | --- | --- |
 | **Local Discovery Shift** | $-7.05\%$ ($41.45\% \to 34.21\%$) | Recommendation reliance drops when searching for local subgenres. |
-| **Metric Decoupling** | $p = 0.086$ (Mann-Whitney $U$) | Customer satisfaction metrics do not track niche subgenre discovery. |
-| **Platform-Hopping** | $100\%$ Rule Confidence ($\text{Lift} = 1.15$) | Users leverage secondary accounts to bypass recommender bias. |
+| **Metric Decoupling** | $p = 0.086$ (Mann-Whitney $U$) | Satisfaction and discovery lack significant association, though pilot is underpowered. |
+| **Platform-Hopping** | $100\%$ Rule Confidence ($\text{Lift} = 1.15$) | Weak association; secondary-account use co-occurs with reported bias. |
 
 ---
 
@@ -89,7 +88,7 @@ $$\mathcal{L}_{\text{gini}} = \frac{\sum_{i=1}^M \sum_{j=1}^M \sqrt{(e_i - e_j)^
 
 ```bash
 # Clone repository
-git clone [https://github.com/baddest-cmd/for-the-kulture.git](https://github.com/baddest-cmd/for-the-kulture.git)
+git clone https://github.com/baddest-cmd/for-the-kulture.git
 cd for-the-kulture
 
 # Create virtual environment and install package in editable mode
@@ -127,15 +126,11 @@ Detailed mathematical proofs, causal diagrams, and experimental methodologies ar
 ## Citation
 
 ```bibtex
-@article{shailoh2026sociotechnical,
+@article{peterson2026sociotechnical,
   title={Socio-Technical Alignment and Algorithmic Flattening: A Mixed-Methods Empirical Study of Local Music Curation in South Africa},
-  author={Shailoh},
+  author={Peterson, Shailoh},
   journal={Technical Report},
   year={2026}
 }
-
-```
-
-```
 
 ```
