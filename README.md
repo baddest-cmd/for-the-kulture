@@ -1,3 +1,5 @@
+Here is the updated README in a single code block, with your advisor's "Interpretive stance" added directly to the end of the Abstract section where it serves as a strong, clear disclaimer before diving into the rest of the repository.
+
 ```markdown
 # Socio-Technical Alignment and Algorithmic Flattening in Local Music Curation
 
@@ -20,6 +22,8 @@ To mitigate algorithmic flattening, we evaluate two counter-alignment paradigms:
 
 * **Paradigm A (Post-Processing Decision Boundary Alignment):** A 3-agent social choice committee using SCRUF-D (Myopic Exploiter, Causal Arbiter via Context Tax $\tau_c$, and Adversarial Preserver).
 * **Paradigm B (In-Processing Representation Alignment):** A JAX/Flax Two-Tower neural network mapping embeddings onto the unit hypersphere $\mathbb{S}^{D-1}$ optimized over joint Reconstruction MSE, Prototype Simplex Spanning ($\mathcal{L}_{\text{proto}}$), and an $\mathcal{O}(K^2)$ Smooth Differentiable Gini Exposure Loss ($\mathcal{L}_{\text{gini}}$).
+
+**Interpretive stance:** Pilot findings are directional, not confirmatory; Appendix F documents power, sparsity, and geographic limits.
 
 ---
 
@@ -115,12 +119,12 @@ python representation-alignment/train.py
 
 Detailed mathematical proofs, causal diagrams, and experimental methodologies are located in the `docs/` directory:
 
-* Appendix A: Closed-Loop Dynamics & Proof of $\alpha > 1$
-* Appendix B: The Inversion Problem & CAFL
-* Appendix C: Hyperspherical Geometry
-* Appendix D: SCRUF-D Axiomatic Social Choice
-* Appendix E: Differentiable Gini & Pareto Optimization
-* Appendix F: Methodological Audit & Blueprint
+* [Appendix A: Closed-Loop Dynamics & Proof of $\alpha > 1$](./docs/mathematical_derivations.md)
+* [Appendix B: The Inversion Problem & CAFL](./docs/appendix_b_causal_deconfounding.md)
+* [Appendix C: Hyperspherical Geometry](./docs/appendix_c_hyperspherical_geometry.md)
+* [Appendix D: SCRUF-D Axiomatic Social Choice](./docs/appendix_d_social_choice_scruf_d.md)
+* [Appendix E: Differentiable Gini & Pareto Optimization](./docs/appendix_e_smooth_gini_optimization.md)
+* [Appendix F: Methodological Audit & Limitations](./docs/appendix_f_limitations.md)
 
 ## Citation
 
