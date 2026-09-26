@@ -1,8 +1,4 @@
 # Appendix A: Mathematical Derivation of Superlinear Bias Escalation in Closed-Loop Recommendation Dynamics
-
-**Author:** Shailoh (Independent Socio-Technologist & ML Practitioner)  
-**Target Repository:** `for the kulture`  
-
 ---
 
 ## 1. Dynamical System Setup: Closed-Loop Collaborative Filtering
